@@ -1,6 +1,6 @@
 # DIY Maimai Touch Screen
 
-This project is a modification from the original project shared by [HelloworldDk ↗](https://github.com/HelloworldDk/dkmaiproj/blob/main/newmap-llvermtn202212271340/newmap-llvermtn202212271340.ino) and aims to improve the stability and usability of the touch screen.
+This project is a modification from the project shared by [Sucareto](https://github.com/Sucareto/Mai2Touch) (the version we based on is by [HelloworldDk ↗](https://github.com/HelloworldDk/dkmaiproj/blob/main/newmap-llvermtn202212271340/newmap-llvermtn202212271340.ino)) and aims to improve the stability and usability of the touch screen.
 
 ## Getting Started
 
