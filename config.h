@@ -77,8 +77,8 @@ const uint8_t NHDR = 2;
 const uint8_t NCLR = 4;
 const uint8_t FDLR = 0;
 const uint8_t MHDF = 2;
-const uint8_t NHDF = 2;
-const uint8_t NCLF = 255;
+const uint8_t NHDF = 1;
+const uint8_t NCLF = 32;
 const uint8_t FDLF = 4;
 
 // range: 0 - 3
