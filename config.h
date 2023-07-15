@@ -1,5 +1,3 @@
-#include <stdint.h>
-
 class touchblock
 {
 public:
