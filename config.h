@@ -159,4 +159,4 @@ const uint8_t LSL = 131;
 
 // please refer to page 16 of the datasheet for more information
 // this value should be the same as AUTO_CONFIG_BVA
-const uint8_t CALIBRATION_LOCK = 0x10;
+const uint8_t CALIBRATION_LOCK = 0b10;
