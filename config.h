@@ -134,7 +134,7 @@ const uint8_t RELEASE_DEBOUNCE = 1;
 // if the user notices too many false touches, try to increase this value. but don't set it too high
 const uint8_t TOUCH_DEBOUNCE = 1;
 // ! the touch response time is debounce * SFI * ESI ms
-// ! so in the code bellow we set read interval to SFI * ESI ms
+// ! so in the main code we set read interval to SFI * ESI ms
 
 // please refer to AN3889 page 9 for more information
 // the user should not change those values
