@@ -91,6 +91,7 @@ void MprSetup(Adafruit_MPR121 cap)
   // FDL is the filter delay count limit, the baseline will be updated after this many samples
   //   if a touch is detected mid way, the update is cancelled
   // NHD is the noise half delta, the baseline will be changed this much when the above conditions are met
+  // please note that the actual update delay is affected by the second stage filter
   cap.writeRegister(MPR121_MHDR, MHDR);
   cap.writeRegister(MPR121_NHDR, NHDR);
   cap.writeRegister(MPR121_NCLR, NCLR);
