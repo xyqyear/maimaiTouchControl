@@ -147,7 +147,6 @@ void MprSetup(Adafruit_MPR121 cap)
   // SCTS being 1 means individual electrode CDT(charge/discharge time) search is disabled
   // "Using only the global CDC and/or global CDT is acceptable where the capacitance values from all 13 channels are similar. If the electrode pattern, size, or even overlay and base material type changes from one channel to another, then using individual CDCx (and CDTx) will have a better result on sensing sensitivity as each electrode is charged up to a point closing to the supply voltage rail so that the highest sensing field is built for each channel."
   // so we should not disable SCTS.
-  // CHANGED
   cap.writeRegister(MPR121_AUTOCONFIG1, SCTS << 7);
 
   // @AN3889 page 7 through 8
