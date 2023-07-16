@@ -82,6 +82,15 @@ void MprSetup(Adafruit_MPR121 cap)
   cap.writeRegister(MPR121_ECR, 0x0);
 
   // @AN3891
+  // those values controls the baseline tracking to environment changes
+  // suffix R and F means rising and falling
+  // falling is the touch direction, rising is the release direction
+  // MHD is the max half delta, the max difference between the baseline and the data
+  //   if the difference is larger than this value, the baseline will be updated (NCL and FDL conditions must also be met)
+  // NCL is the noise count limit, at least this many of changes must be larger than MHD to trigger a baseline update
+  // FDL is the filter delay count limit, the baseline will be updated after this many samples
+  //   if a touch is detected mid way, the update is cancelled
+  // NHD is the noise half delta, the baseline will be changed this much when the above conditions are met
   cap.writeRegister(MPR121_MHDR, MHDR);
   cap.writeRegister(MPR121_NHDR, NHDR);
   cap.writeRegister(MPR121_NCLR, NCLR);
