@@ -20,8 +20,7 @@ enum
   commandSens = 0x6B,  // k
 };
 
-uint8_t SECOND_FILTER_ITERATION_SAMPLES;
-uint8_t ELECTRODE_SAMPLE_INTERVAL_MS;
+uint8_t DATA_READ_INTERVAL;
 
 void setup()
 {
@@ -34,6 +33,9 @@ void setup()
   Wire.setClock(800000);
 
   // config conversion
+
+  uint8_t SECOND_FILTER_ITERATION_SAMPLES;
+  uint8_t ELECTRODE_SAMPLE_INTERVAL_MS;
 
   switch (SECOND_FILTER_ITERATIONS)
   {
@@ -52,6 +54,7 @@ void setup()
   }
 
   ELECTRODE_SAMPLE_INTERVAL_MS = 1 << ELECTRODE_SAMPLE_INTERVAL;
+  DATA_READ_INTERVAL = SECOND_FILTER_ITERATION_SAMPLES * ELECTRODE_SAMPLE_INTERVAL_MS;
 }
 
 void loop()
@@ -59,7 +62,7 @@ void loop()
   // there will only be a new data point every this many milliseconds
   // so we don't need to check every loop
   uint16_t currentMillis = millis();
-  if (currentMillis - lastMillis > ELECTRODE_SAMPLE_INTERVAL_MS * SECOND_FILTER_ITERATION_SAMPLES)
+  if (currentMillis - lastMillis > DATA_READ_INTERVAL)
   {
     lastMillis = currentMillis;
     Recv();
