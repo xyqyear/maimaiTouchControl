@@ -82,7 +82,7 @@ void MprSetup(Adafruit_MPR121 cap)
   cap.writeRegister(MPR121_ECR, 0x0);
 
   // @AN3891
-  // those values controls the baseline tracking to environment changes
+  // those values control the baseline tracking to environment changes
   // suffix R and F means rising and falling
   // falling is the touch direction, rising is the release direction
   // MHD is the max half delta, the max difference between the baseline and the data
