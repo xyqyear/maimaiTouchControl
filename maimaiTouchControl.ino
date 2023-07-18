@@ -61,7 +61,7 @@ void loop()
 {
   // there will only be a new data point every this many milliseconds
   // so we don't need to check every loop
-  uint16_t currentMillis = millis();
+  uint32_t currentMillis = millis();
   if (currentMillis - lastMillis > DATA_READ_INTERVAL)
   {
     lastMillis = currentMillis;
