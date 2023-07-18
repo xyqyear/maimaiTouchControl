@@ -2,7 +2,7 @@
 
 本项目是对[Sucareto ↗](https://github.com/Sucareto/Mai2Touch)分享的项目的修改（我们基于的版本是由[HelloworldDk ↗](https://github.com/HelloworldDk/dkmaiproj/blob/main/newmap-llvermtn202212271340/newmap-llvermtn202212271340.ino)提供的），旨在提高触摸屏的稳定性和可用性。
 
-## 任何从 newmap-llvermtn202212271340.ino 迁移过来的人，请阅读迁移指南**
+## 任何从 newmap-llvermtn202212271340.ino 迁移过来的人，请阅读迁移指南
 
 ## 入门指南
 

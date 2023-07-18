@@ -4,7 +4,7 @@ Chinese version of README.md is available at [中文简介 ↗](README_zh.md)
 
 This project is a modification from the project shared by [Sucareto ↗](https://github.com/Sucareto/Mai2Touch) (the version we based on is by [HelloworldDk ↗](https://github.com/HelloworldDk/dkmaiproj/blob/main/newmap-llvermtn202212271340/newmap-llvermtn202212271340.ino)) and aims to improve the stability and usability of the touch screen.
 
-## FOR ANYONE MIGRATING FROM newmap-llvermtn202212271340.ino, PLEASE READ THE MIGRATION GUIDE**
+## FOR ANYONE MIGRATING FROM newmap-llvermtn202212271340.ino, PLEASE READ THE MIGRATION GUIDE
 
 ## Getting Started
 
