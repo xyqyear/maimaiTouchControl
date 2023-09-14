@@ -30,7 +30,7 @@ void setup()
   mpr[1].begin(0x5B, &Wire);
   mpr[2].begin(0x5C, &Wire);
   mpr[3].begin(0x5D, &Wire);
-  Wire.setClock(400000);
+  Wire.setClock(100000);
 
   // config conversion
 
