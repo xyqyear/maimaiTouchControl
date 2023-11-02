@@ -7,7 +7,7 @@ public:
 };
 
 const uint8_t MPR_PADNUMS[] = {8, 9, 9, 8};
-const uint8_t THREASHOLD = 25;
+const uint8_t THREASHOLD = 32;
 
 touchblock touchmap[34] = {
     // Group A
