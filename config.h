@@ -6,7 +6,7 @@ public:
   int8_t thresOffset;
 };
 
-const uint8_t MPR_PADNUMS[] = {8, 9, 9, 8};
+const uint8_t MPR_PADNUMS[] = {12, 12, 12, 12};
 const uint8_t THREASHOLD = 35;
 
 touchblock touchmap[34] = {
