@@ -164,7 +164,7 @@ void MprSetup(Adafruit_MPR121 cap)
 
   // @datasheet page 16
   // 2bit CL, 2bit ELEPROX_EN, 4bit ELE_EN
-  // CL set to 11 means Baseline tracking enabled, initial baseline value is loaded with all 10 bits of the first electrode data value
+  // CL set to 10 means Baseline tracking enabled, initial baseline value is loaded with first 5 bits of the first electrode data value. This is desireable because the first value might be noisy, we can let the baseline track the data for a while before using it.
   // ELEPROX_EN being 0 means proximity disabled
   // ELE_EN being a certain number means how many electrodes are enabled
   // the ELE_EN value set here is irrelevant because we will set it again in STAT command
