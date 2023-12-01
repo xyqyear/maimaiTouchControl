@@ -72,6 +72,16 @@ const uint8_t RELEASE_THREASHOLD_OFFSET = 0;
 // NHDF = 1
 // NCLF = 16
 // FDLF = 4
+// if some regions get stuck easily, you can try the following values
+//   to make the system more sensitive to environmental changes
+// MHDR = 2;
+// NHDR = 2;
+// NCLR = 4;
+// FDLR = 0;
+// MHDF = 4;
+// NHDF = 2;
+// NCLF = 16;
+// FDLF = 2;
 // rising NHD is larger than falling NHD because rising is the release direction
 //   the rising changes are more likely to be environmental changes
 // rising NCL being smaller than falling NCL is because of the same reason
@@ -125,7 +135,7 @@ const uint8_t ELECTRODE_SAMPLE_INTERVAL = 0;
 // this smoothes out the signal and prevents false release
 //   however, a debounce value that's too high might cause releases that are too short to be missed
 // if the user notices too many false releases, try to increase this value. but don't set it too high
-const uint8_t RELEASE_DEBOUNCE = 1;
+const uint8_t RELEASE_DEBOUNCE = 0;
 
 // range: 0 - 7
 // when DT + 1 samples are higher than the threshold, the electrode is touched
