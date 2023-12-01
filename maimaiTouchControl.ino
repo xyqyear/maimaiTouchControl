@@ -88,12 +88,10 @@ void MprSetup(Adafruit_MPR121 cap)
   // those values control the baseline tracking to environment changes
   // suffix R and F means rising and falling
   // falling is the touch direction, rising is the release direction
-  // MHD is the max half delta, the max difference between the baseline and the data
-  //   if the difference is larger than this value, the baseline will be updated (NCL and FDL conditions must also be met)
-  // NCL is the noise count limit, at least this many of changes must be larger than MHD to trigger a baseline update
-  // FDL is the filter delay count limit, the baseline will be updated after this many samples
-  //   if a touch is detected mid way, the update is cancelled
-  // NHD is the noise half delta, the baseline will be changed this much when the above conditions are met
+  // MHD is the max half delta, if the difference between the data and baseline is lower than double this value in the specific direction, the baseline will be adjusted to the data on the next cycle
+  // NCL is the noise count limit, at least this mount of changes in one direction is required to trigger an update
+  // NHD is the noise half delta, the baseline will be changed by this amount when NCL conditions are met
+  // FDL is the filter delay count limit, the system will average the data for this amount of cycles before calculating with NHD and NCL
   // please note that the actual update delay is affected by the second stage filter
   cap.writeRegister(MPR121_MHDR, MHDR);
   cap.writeRegister(MPR121_NHDR, NHDR);
@@ -103,6 +101,13 @@ void MprSetup(Adafruit_MPR121 cap)
   cap.writeRegister(MPR121_NHDF, NHDF);
   cap.writeRegister(MPR121_NCLF, NCLF);
   cap.writeRegister(MPR121_FDLF, FDLF);
+
+  // there are also NHDT, NCLT and FDLT. Those are for datapoints when the electrode is touched.
+  //   these are 0 by default, which means when a electrode is touched, the baseline will not be updated at all.
+  // Note: "When the data changes between these conditions, the current filter process is cancelled and all filter counters return to zero" from AN3891 page 3.
+  cap.writeRegister(MPR121_NHDT, NHDT);
+  cap.writeRegister(MPR121_NCLT, NCLT);
+  cap.writeRegister(MPR121_FDLT, FDLT);
 
   // @AN3892 page 7
   // 1 bit unused, 3 bit DR, 1 bit unused, 3 bit DT

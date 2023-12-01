@@ -72,29 +72,24 @@ const uint8_t RELEASE_THRESHOLD_OFFSET = 0;
 // NHDF = 1
 // NCLF = 16
 // FDLF = 4
-// if some regions get stuck easily, you can try the following values
-//   to make the system more sensitive to environmental changes
-// MHDR = 2;
-// NHDR = 2;
-// NCLR = 4;
-// FDLR = 0;
-// MHDF = 4;
-// NHDF = 2;
-// NCLF = 16;
-// FDLF = 2;
 // rising NHD is larger than falling NHD because rising is the release direction
 //   the rising changes are more likely to be environmental changes
 // rising NCL being smaller than falling NCL is because of the same reason
 // the user can experiment with different values to find the best one
 //   but those values should be good for most cases
-const uint8_t MHDR = 2;
-const uint8_t NHDR = 2;
-const uint8_t NCLR = 4;
-const uint8_t FDLR = 0;
-const uint8_t MHDF = 2;
+const uint8_t MHDR = 1;
+const uint8_t NHDR = 1;
+const uint8_t NCLR = 2;
+const uint8_t FDLR = 2;
+const uint8_t MHDF = 1;
 const uint8_t NHDF = 1;
 const uint8_t NCLF = 32;
-const uint8_t FDLF = 4;
+const uint8_t FDLF = 2;
+
+// Don't worry about those
+const uint8_t NHDT = 0;
+const uint8_t NCLT = 0;
+const uint8_t FDLT = 0;
 
 // range: 0 - 3
 // 0: 6 samples
@@ -142,14 +137,14 @@ const uint8_t RELEASE_DEBOUNCE = 0;
 // this smoothes out the signal and prevents false touch
 //   however, a debounce value that's too high might cause touches that are too short to be missed
 // if the user notices too many false touches, try to increase this value. but don't set it too high
-const uint8_t TOUCH_DEBOUNCE = 1;
+const uint8_t TOUCH_DEBOUNCE = 2;
 // ! the touch response time is debounce * SFI * ESI ms
 // ! so in the main code we set read interval to SFI * ESI ms
 
 // please refer to AN3889 page 9 for more information
 // the user should not change those values
 const uint8_t AUTO_CONFIG_RETRY = 0;
-const uint8_t AUTO_CONFIG_BVA = 2;
+const uint8_t AUTO_CONFIG_BVA = 0b10;
 const uint8_t AUTO_CONFIG_ARE = 1;
 const uint8_t AUTO_CONFIG_ACE = 1;
 
