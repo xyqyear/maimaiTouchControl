@@ -9,7 +9,7 @@ Adafruit_MPR121 mpr[4];
 uint8_t packet[6];
 uint8_t len = 0;
 bool Conditioning = true;
-uint32_t lastMillis = 0;
+uint32_t lastMicros = 0;
 
 enum
 {
@@ -20,7 +20,7 @@ enum
   commandSens = 0x6B,  // k
 };
 
-uint8_t DATA_READ_INTERVAL;
+uint8_t DATA_READ_INTERVAL_MICRO_S;
 
 void setup()
 {
@@ -54,17 +54,17 @@ void setup()
   }
 
   ELECTRODE_SAMPLE_INTERVAL_MS = 1 << ELECTRODE_SAMPLE_INTERVAL;
-  DATA_READ_INTERVAL = SECOND_FILTER_ITERATION_SAMPLES * ELECTRODE_SAMPLE_INTERVAL_MS;
+  DATA_READ_INTERVAL_MICRO_S = SECOND_FILTER_ITERATION_SAMPLES * ELECTRODE_SAMPLE_INTERVAL_MS * 1000;
 }
 
 void loop()
 {
-  // there will only be a new data point every this many milliseconds
+  // there will only be a new data point every this many microseconds
   // so we don't need to check every loop
-  uint32_t currentMillis = millis();
-  if (currentMillis - lastMillis > DATA_READ_INTERVAL)
+  uint32_t currentMicros = micros();
+  if (currentMicros - lastMicros > DATA_READ_INTERVAL_MICRO_S)
   {
-    lastMillis = currentMillis;
+    lastMicros = currentMicros;
     Recv();
     Conditioning ? void() : TouchSend();
   }
