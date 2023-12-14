@@ -266,6 +266,20 @@ void Recv()
   }
 }
 
+uint16_t avoidControlCharacter(uint16_t c)
+{
+  // if the lower 8 bits of the data is '(', add 1 and set the highest bit to 1
+  // else set the highest bit to 0
+  if ((c & 0xFF) == '(')
+  {
+    c += 1;
+    c |= 0x8000;
+  } else {
+    c &= 0x7FFF;
+  }
+  return c;
+}
+
 void TouchSend()
 {
   // setting up the stage and reading the touched data
@@ -294,4 +308,19 @@ void TouchSend()
     TouchData >>= 5;
   }
   SerialDevice.write(data, 9);
+
+  // getting raw baseline and data
+  uint16_t rawData[70];
+  rawData[0] = '[';
+  rawData[69] = ']';
+
+  for (uint8_t i = 1; i < 69; i += 2)
+  {
+    uint8_t mprid = touchmap[i].mprid;
+    uint8_t portid = touchmap[i].portid;
+    rawData[i] = avoidControlCharacter(mpr[mprid].baselineData(portid));
+    rawData[i + 1] = avoidControlCharacter(mpr[mprid].filteredData(portid));
+  }
+
+  SerialDevice.write((uint8_t *)rawData, 140);
 }
