@@ -210,8 +210,8 @@ void cmd_STAT()
     uint8_t mprid = touchmap[i].mprid;
     uint8_t portid = touchmap[i].portid;
     int8_t thresOffset = touchmap[i].thresOffset;
-    mpr[mprid].writeRegister(MPR121_TOUCHTH_0 + portid * 2, THREASHOLD + thresOffset);
-    mpr[mprid].writeRegister(MPR121_RELEASETH_0 + portid * 2, THREASHOLD - RELEASE_THREASHOLD_OFFSET + thresOffset);
+    mpr[mprid].writeRegister(MPR121_TOUCHTH_0 + portid * 2, THRESHOLD + thresOffset);
+    mpr[mprid].writeRegister(MPR121_RELEASETH_0 + portid * 2, THRESHOLD - RELEASE_THRESHOLD_OFFSET + thresOffset);
   }
 
   // setting ECR to enable electrodes

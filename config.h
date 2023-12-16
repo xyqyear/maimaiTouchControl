@@ -7,7 +7,7 @@ public:
 };
 
 const uint8_t MPR_PADNUMS[] = {12, 12, 12, 12};
-const uint8_t THREASHOLD = 32;
+const uint8_t THRESHOLD = 32;
 
 touchblock touchmap[34] = {
     // Group A
@@ -51,8 +51,8 @@ touchblock touchmap[34] = {
     {0, 3, 0}, // 8
 };
 
-// the release threashold will be set to THREASHOLD - RELEASE_THREASHOLD_OFFSET
-const uint8_t RELEASE_THREASHOLD_OFFSET = 0;
+// the release threashold will be set to THRESHOLD - RELEASE_THRESHOLD_OFFSET
+const uint8_t RELEASE_THRESHOLD_OFFSET = 0;
 
 // AN3944 recommended values are:
 // MHDR = 1
